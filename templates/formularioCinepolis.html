@@ -1,0 +1,61 @@
+{% extends "layout.html" %} {% block content %}
+
+<link rel="stylesheet" href="../static/css/cinepolis.css">
+
+<form action="/opciones" method="POST">
+  <div id="formulario">
+    <div id="datosPersonales">
+      <h2>Entradas</h2>
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" name="nombre" required />
+
+      <label for="cantidadCompradores">Cantidad de Compradores:</label>
+      <input
+        type="number"
+        id="cantidadCompradores"
+        name="cantidadCompradores"
+        required
+      />
+
+      <label for="cantidadBoletos">Cantidad de Boletos:</label>
+      <input
+        type="number"
+        id="cantidadBoletos"
+        name="cantidadBoletos"
+        required
+      />
+
+    <div id="radioButtons">
+      <label for="tarjetaCinepo">Tarjeta Cinepo:</label>
+      <div id="radio">
+        <label>SI</label>
+        <input type="radio" name="si" />
+     </div>
+     <div id="radio">
+      <label>No</label>
+      <input type="radio" name="no" />
+    </div>
+    </di>
+
+    
+    </div>
+
+ <div id="resumen">
+  <h2>Salidas</h2>
+  <div class="summary">
+  <label for="valorPagar">Valor a Pagar:</label>
+  <input type="text" id="valorPagar" name="valorPagar" readonly value="{{ total }}">
+  <label>{{mensaje}}</label>
+ </div>
+</div>
+
+
+
+
+  <div>
+    <button name="procesar" type="submit">Procesar</button>
+    <button >Salir</button>
+  </div>
+</form>
+
+{% endblock %}
