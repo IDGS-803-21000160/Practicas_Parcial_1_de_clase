@@ -1,4 +1,6 @@
 from flask import Flask, render_template,request
+import math
+import formdistance
 
 
 app=Flask(__name__)
@@ -79,6 +81,32 @@ def resultado():
             return "<h1>La Multiplicacion es: {} </h1>".format(str(int(num1)*int(num2)))
         else:
             return "<h1>La Division es: {} </h1>".format(str(int(num1)/int(num2)))
+
+
+@app.route("/formCalDistancia",methods=["GET","POST"])
+def calcularDistancia():
+    distance_form=formdistance.DistanceForm(request.form)
+    resultado=0
+    if request.method=='POST':
+        valx1=float(distance_form.valorx1.data)
+        valx2=float(distance_form.valorx2.data)
+        valy1=float(distance_form.valory1.data)
+        valy2=float(distance_form.valory2.data)
+        
+        print("Valor X1 : {} ".format(valx1)) 
+        print("Valor X2 : {} ".format(valx2))        
+        print("Valor Y1  : {} ".format(valy1)) 
+        print("Valor Y2  : {} ".format(valy2)) 
+        
+
+        primerPar=math.pow(((valx2)-(valx1)),2)
+        segundoPar=math.pow(((valy2)-(valy1)),2)
+        
+        resultado=math.sqrt((primerPar)+(segundoPar))
+        
+        print("Resultado: { } ",format((resultado)))
+    
+    return render_template("distacia.html",form=distance_form,resultado=resultado)
 
 
 '''
