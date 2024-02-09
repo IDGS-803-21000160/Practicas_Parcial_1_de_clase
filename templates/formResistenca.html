@@ -1,0 +1,50 @@
+{% extends "layout.html" %} {%block content%} {%import "_macro.html" as macros%}
+<link rel="stylesheet" href="../static/css/formResistencia.css">
+
+<h1>
+</h1>
+<form action="" method="post">
+    <div class="container" style="">
+        <div class="box">    {{macros.render_field(form.colores1)}}</div>
+        <div class="box">    {{macros.render_field(form.colores2)}}</div>
+        <div class="box">    {{macros.render_field(form.colores3)}}</div>
+      </div>
+
+    {{macros.render_field(form.options)}}
+   
+<input type="submit" name="btn1" value="registrar" class="boton-registrar"></input>
+<input type="submit" name="btn2" value="limpiar" class="boton-limpiar"></input>
+<div style="padding-top: 100px">
+<table >
+    <thead>
+      <tr>
+        <th>Color 1</th>
+        <th>Color 2</th>
+        <th>Color 3</th>
+        <th>Tolerancia</th>
+        <th>Valor</th>
+        <th>Valor Maximo</th>
+        <th>Valor Minimo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="background-color: {{text}};">{{text}}</td>
+        <td style="background-color: {{texttwo}};">{{texttwo}}</td>
+        <td style="background-color: {{textthree}};">{{textthree}}</td>
+        <td>{{tolerancia}}</td>
+        <td>{{valor}}</td>
+        <td>{{valMax}}</td>
+        <td>{{valMin}}</td>
+      </tr>
+      <tr>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+</form>
+
+
+
+{%endblock %}
